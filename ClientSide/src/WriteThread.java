@@ -1,7 +1,6 @@
-package client;
-
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 /**
  * This thread is responsible for reading user's input and send it
@@ -29,17 +28,18 @@ public class WriteThread extends Thread {
 	}
 
 	public void run() {
+		//Console console = System.console();
+		Scanner scanner = new Scanner(System.in);
 
-		Console console = System.console();
-
-		String userName = console.readLine("\nEnter your name: ");
+		System.out.print("\nEnter your name: ");
+		String userName = scanner.nextLine();
 		client.setUserName(userName);
 		writer.println(userName);
 
 		String text;
-
 		do {
-			text = console.readLine("[" + userName + "]: ");
+			System.out.print("[" + userName + "]: ");
+			text = scanner.nextLine();
 			writer.println(text);
 
 		} while (!text.equals("bye"));

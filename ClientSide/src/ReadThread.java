@@ -1,5 +1,3 @@
-package client;
-
 import client.ChatClient;
 
 import java.io.*;
@@ -42,7 +40,6 @@ public class ReadThread extends Thread {
 				}
 			} catch (IOException ex) {
 				System.out.println("Error reading from server: " + ex.getMessage());
-				ex.printStackTrace();
 				break;
 			}
 		}
